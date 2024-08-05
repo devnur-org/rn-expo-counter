@@ -12,6 +12,10 @@ export default function App() {
     setCount((prevState: number) => prevState - 1);
   }
 
+  function reset() {
+    setCount(0);
+  }
+
   return (
     <View style={styles.container}>
       <Text style={styles.countText}>{count}</Text>
@@ -19,6 +23,7 @@ export default function App() {
         <Button title="Decrease" onPress={decrement} disabled={count === 0} />
         <Button title="Increase" onPress={increment} />
       </View>
+      <Button title="Reset" onPress={reset} disabled={count === 0} />
     </View>
   );
 }
