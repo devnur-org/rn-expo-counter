@@ -19,5 +19,12 @@
     "@types/react": "~18.2.45",
     "typescript": "^5.1.3"
   },
-  "private": true
+  "private": true,
+  "author": {
+    "email": "arslan@devnur.com",
+    "name": "Arslan Mushtaq",
+    "url": "https://arslanmushtaq.com"
+  },
+  "description": "Counter Application built in React Native Expo",
+  "homepage": "https://github.com/devnur-org/rn-expo-counter"
 }
