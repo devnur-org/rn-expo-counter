@@ -2,14 +2,22 @@ import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
 
 export default function App() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState<number>(0);
+
+  function increment() {
+    setCount((prevState: number) => prevState + 1);
+  }
+
+  function decrement() {
+    setCount((prevState: number) => prevState - 1);
+  }
 
   return (
     <View style={styles.container}>
       <Text style={styles.countText}>{count}</Text>
       <View style={styles.actionWrapper}>
-        <Button title="Decrease" />
-        <Button title="Increase" />
+        <Button title="Decrease" onPress={decrement} />
+        <Button title="Increase" onPress={increment} />
       </View>
     </View>
   );
