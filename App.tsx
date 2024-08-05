@@ -16,7 +16,7 @@ export default function App() {
     <View style={styles.container}>
       <Text style={styles.countText}>{count}</Text>
       <View style={styles.actionWrapper}>
-        <Button title="Decrease" onPress={decrement} />
+        <Button title="Decrease" onPress={decrement} disabled={count === 0} />
         <Button title="Increase" onPress={increment} />
       </View>
     </View>
