@@ -1,19 +1,20 @@
 import { useState } from "react";
 import { Button, StyleSheet, Text, View } from "react-native";
+import { Counter } from "./utils/Counter";
 
 export default function App() {
-  const [count, setCount] = useState<number>(0);
+  const [count, setCount] = useState<number>(Counter.initialValue);
 
   function increment() {
-    setCount((prevState: number) => prevState + 1);
+    setCount(Counter.increment);
   }
 
   function decrement() {
-    setCount((prevState: number) => prevState - 1);
+    setCount(Counter.decrement);
   }
 
   function reset() {
-    setCount(0);
+    setCount(Counter.reset);
   }
 
   return (
