@@ -1,6 +1,6 @@
-# Counter - React Native Expo
+# Counter with OOP - React Native Expo
 
-A counter application built using Expo framework. Learn how it is built at [here](https://devnur.com/building-a-counter-application-using-react-native-expo/).
+A counter application built using Expo framework and Object Oriented Programming. Learn how it is built at [here](https://devnur.com/utilizing-oop-in-react-native/).
 
 > It is important to setup the Environment before running the application. Learn more about setting up [React Native Environment](https://reactnative.dev/docs/set-up-your-environment)
 
