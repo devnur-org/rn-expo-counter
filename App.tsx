@@ -17,14 +17,16 @@ export default function App() {
     setCount(Counter.reset);
   }
 
+  const isZero = Counter.isZero(count);
+
   return (
     <View style={styles.container}>
       <Text style={styles.countText}>{count}</Text>
       <View style={styles.actionWrapper}>
-        <Button title="Decrease" onPress={decrement} disabled={count === 0} />
+        <Button title="Decrease" onPress={decrement} disabled={isZero} />
         <Button title="Increase" onPress={increment} />
       </View>
-      <Button title="Reset" onPress={reset} disabled={count === 0} />
+      <Button title="Reset" onPress={reset} disabled={isZero} />
     </View>
   );
 }

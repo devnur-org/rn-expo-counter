@@ -12,4 +12,8 @@ export class Counter {
   static reset() {
     return 0;
   }
+
+  static isZero(count: number) {
+    return count === 0;
+  }
 }
