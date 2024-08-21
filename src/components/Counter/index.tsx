@@ -1,8 +1,14 @@
 import React, {useState} from 'react';
-import {Button, Text, View} from "react-native";
+import {Text, View} from "react-native";
 import {styles} from './styles';
+import CounterActionButton from "../CounterActionButton";
 
-const Counter: React.FC = () => {
+interface Props {
+  header: string
+  description: string
+}
+
+const Counter: React.FC<Props> = ({header, description}) => {
   const [count, setCount] = useState<number>(0);
 
   function increment() {
@@ -19,12 +25,18 @@ const Counter: React.FC = () => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.countText}>{count}</Text>
-      <View style={styles.actionWrapper}>
-        <Button title="Decrease" onPress={decrement} disabled={count === 0} />
-        <Button title="Increase" onPress={increment} />
+      <View style={styles.textWrapper}>
+        <Text style={styles.header}>{header}</Text>
+        <Text style={styles.description}>{description}</Text>
       </View>
-      <Button title="Reset" onPress={reset} disabled={count === 0} />
+      <View style={styles.counterWrapper}>
+        <CounterActionButton onPress={reset} text={"Reset"} disabled={count === 0}/>
+        <View style={styles.counterActionWrapper}>
+          <CounterActionButton onPress={decrement} iconName={"minus"} disabled={count === 0}/>
+          <Text style={styles.countText}>{count}</Text>
+          <CounterActionButton onPress={increment} iconName={"plus"}/>
+        </View>
+      </View>
     </View>
   )
 }
