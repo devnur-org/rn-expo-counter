@@ -1,45 +1,47 @@
 import {StyleSheet} from "react-native";
 
 export const styles = StyleSheet.create({
-  container: {
+  cardContainer: {
     backgroundColor: '#F2F2F2',
-    padding: 18,
-    rowGap: 24,
     borderRadius: 8,
-    borderCurve: 'circular',
-    borderBottomWidth: 1,
-    borderLeftWidth: 1,
-    borderColor: 'rgba(0, 0, 0, 0.1)',
+    padding: 16,
+    rowGap: 16,
   },
   textWrapper: {
-    rowGap: 4
+    rowGap: 6
   },
-  counterWrapper: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    width: '100%',
-  },
-  counterActionWrapper: {
-    flexDirection: 'row',
-    alignItems: 'center'
-  },
-  countText: {
-    fontSize: 16,
-    fontWeight: "bold",
-    width: 50,
-    textAlign: 'center'
-  },
-  actionWrapper: {
-    flexDirection: "row",
-    columnGap: 12,
-  },
-  header: {
+  headerText: {
+    color: "#212121",
     fontSize: 16,
     fontWeight: 'bold'
   },
-  description: {
+  descriptionText: {
+    color: "#212121",
     fontSize: 12,
-    fontWeight: 'semibold'
+    fontWeight: 'regular'
+  },
+  actionWrapper: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  actionButton: {
+    backgroundColor: "#FFFFFF",
+    borderRadius: 8,
+    width: 70,
+    alignItems: 'center',
+    padding: 12
+  },
+  actionText: {
+    color: "#212121",
+    fontSize: 16,
+    fontWeight: '600',
+    textAlign: 'center'
+  },
+  counterText: {
+    width: 50,
+    fontWeight: '600',
+    fontSize: 16,
+    textAlign: 'center'
   }
 });

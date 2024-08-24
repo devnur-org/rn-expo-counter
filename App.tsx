@@ -1,18 +1,22 @@
 import {SafeAreaView, StatusBar, StyleSheet, View} from "react-native";
 import Counter from "./src/components/Counter";
-import Header from "./src/components/Header";
+import Header from './src/components/Header';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Header/>
-      <View style={styles.wrapper}>
+      <View style={styles.countersWrapper}>
         <Counter
           header={"Daily Water"}
-          description={"I am going to measure my everyday daily water using this counter."}
+          description={"Counting my water intake per day"}
         />
-        <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
+        <Counter
+          header={"Gaming Hours"}
+          description={"Counting my gaming hours per week"}
+        />
       </View>
+      <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
     </SafeAreaView>
   );
 }
@@ -20,13 +24,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "white",
+    backgroundColor: "#fff",
   },
-  wrapper: {
-    padding: 12
-  },
-  counterListContent: {
-    rowGap: 8,
-    padding: 12
+  countersWrapper: {
+    padding: 16,
+    rowGap: 16
   }
 });
