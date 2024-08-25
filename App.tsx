@@ -1,24 +1,24 @@
-import {SafeAreaView, StatusBar, StyleSheet, View} from "react-native";
-import Counter from "./src/components/Counter";
+import {FlatList, ListRenderItem, SafeAreaView, StatusBar, StyleSheet} from "react-native";
 import Header from './src/components/Header';
+import Counter, {type CounterProps} from "./src/components/Counter";
+import counters from './src/data/counters.json';
 
 export default function App() {
   return (
     <SafeAreaView style={styles.container}>
       <Header/>
-      <View style={styles.countersWrapper}>
-        <Counter
-          header={"Daily Water"}
-          description={"Counting my water intake per day"}
-        />
-        <Counter
-          header={"Gaming Hours"}
-          description={"Counting my gaming hours per week"}
-        />
-      </View>
+      <FlatList
+        data={counters}
+        contentContainerStyle={styles.counterContentContainer}
+        renderItem={_renderItem}
+      />
       <StatusBar barStyle={'dark-content'} backgroundColor={'white'}/>
     </SafeAreaView>
   );
+}
+
+const _renderItem: ListRenderItem<CounterProps> = ({item}) => {
+  return <Counter {...item} />
 }
 
 const styles = StyleSheet.create({
@@ -26,7 +26,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: "#fff",
   },
-  countersWrapper: {
+  counterContentContainer: {
     padding: 16,
     rowGap: 16
   }

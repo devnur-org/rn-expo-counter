@@ -1,0 +1,18 @@
+[
+  {
+    "id": "0",
+    "header": "Water intake",
+    "description": "Counting my water intake per day",
+    "max": null,
+    "initial": 0,
+    "steps": 1
+  },
+  {
+    "id": "1",
+    "header": "Gaming",
+    "description": "Counting my gaming hours",
+    "max": 50,
+    "initial": 0,
+    "steps": 5
+  }
+]

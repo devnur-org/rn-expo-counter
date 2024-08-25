@@ -3,25 +3,31 @@ import {Text, TouchableOpacity, View} from "react-native";
 import {styles} from "./styles";
 import CounterActionButton from "../CounterActionButton";
 
-interface CounterProps {
+export interface CounterProps {
   header: string;
   description: string;
+  max: number | null;
+  initial: number;
+  steps: number;
 }
 
-const Counter: React.FC<CounterProps> = ({header, description}): React.JSX.Element => {
-  const [count, setCount] = useState(0);
+
+const Counter: React.FC<CounterProps> = ({header, description, max, initial, steps}): React.JSX.Element => {
+  const [count, setCount] = useState(initial);
 
   function increment() {
-    setCount((prevState) => prevState + 1);
+    setCount((prevState) => prevState + steps);
   }
 
   function decrement() {
-    setCount((prevState) => prevState - 1);
+    setCount((prevState) => prevState - steps);
   }
 
   function reset() {
-    setCount(0);
+    setCount(initial);
   }
+
+  const isMax = max !== null ? count === max : false
 
   return (
     <View style={styles.cardContainer}>
@@ -30,13 +36,13 @@ const Counter: React.FC<CounterProps> = ({header, description}): React.JSX.Eleme
         <Text style={styles.descriptionText}>{description}</Text>
       </View>
       <View style={styles.actionWrapper}>
-        <TouchableOpacity style={styles.actionButton} onPress={reset}>
+        <TouchableOpacity style={styles.actionButton} onPress={reset} disabled={count === initial}>
           <Text style={styles.actionText}>Reset</Text>
         </TouchableOpacity>
         <View style={styles.actionWrapper}>
-          <CounterActionButton icon={"minus"} onPress={decrement}/>
+          <CounterActionButton icon={"minus"} onPress={decrement} disabled={count === initial}/>
           <Text style={styles.counterText}>{count}</Text>
-          <CounterActionButton icon={"plus"} onPress={increment}/>
+          <CounterActionButton icon={"plus"} onPress={increment} disabled={isMax}/>
         </View>
       </View>
     </View>
